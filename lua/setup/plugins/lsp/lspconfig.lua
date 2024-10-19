@@ -1,10 +1,10 @@
-return{
+return {
   "neovim/nvim-lspconfig",
   event = { "BufReadPre", "BufNewFile" },
   dependencies = {
     "hrsh7th/cmp-nvim-lsp",
     { "antosha417/nvim-lsp-file-operations", config = true },
-    { "folke/neodev.nvim", opts = {} },
+    { "folke/neodev.nvim",                   opts = {} },
   },
 
   config = function()
@@ -16,6 +16,8 @@ return{
 
     -- import cmp-nvim-lsp plugin
     local cmp_nvim_lsp = require("cmp_nvim_lsp")
+
+    local util = require("lspconfig/util")
 
     local keymap = vim.keymap -- for conciseness
 
@@ -63,7 +65,6 @@ return{
 
         opts.desc = "Restart LSP"
         keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
-
       end
     })
 
@@ -79,7 +80,7 @@ return{
 
     -- used to enable autocompletion (assign to every lsp server config)
     local capabilities = cmp_nvim_lsp.default_capabilities()
-    
+
     -- Change the Diagnostic symbols in the sign column (gutter)
     local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
     for type, icon in pairs(signs) do
@@ -96,7 +97,7 @@ return{
         })
       end,
 
-       ["lua_ls"] = function()
+      ["lua_ls"] = function()
         -- configure lua server (with special settings)
         lspconfig["lua_ls"].setup({
           capabilities = capabilities,
@@ -118,14 +119,18 @@ return{
         lspconfig["rust_analyzer"].setup({
           filetypes = { "rust" },
           capabilities = capabilities,
-          on_attach = function(client, bufnr)
+          root_dir = util.root_pattern("Cargo.toml"),
+          on_attach = function(_, bufnr)
             vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
           end,
+          setting = {
+            cargo = {
+              allFeatures = true,
+            }
+          },
         })
       end,
 
-
     })
-
   end
 }

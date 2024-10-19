@@ -23,7 +23,7 @@ return {
     mason_lspconfig.setup({
       ensure_installed = {
         "lua_ls",
-        "rust_analyzer"
+        "rust_analyzer",
       }
     })
 
@@ -35,6 +35,7 @@ return {
         "black",    -- python formatter
         "pylint",
         "eslint_d",
+        "codelldb"
       },
     })
   end,
