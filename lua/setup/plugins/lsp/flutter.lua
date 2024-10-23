@@ -1,12 +1,12 @@
 return {
-  "neovim/nvim-lspconfig",
+  'nvim-flutter/flutter-tools.nvim',
+  lazy = false,
   dependencies = {
-    "dart-lang/dart-vim-plugin",
-    "thosakwe/vim-flutter"
+    'nvim-lua/plenary.nvim',
+    'stevearc/dressing.nvim', -- optional for vim.ui.select
+    'dart-lang/dart-vim-plugin',
+    'natebosch/vim-lsc',
+    'natebosch/vim-lsc-dart',
   },
-  opts = function()
-    require("lspconfig").dartls.setup({
-      cmd = { "dart", "language-server", "--protocol=lsp" },
-    })
-  end,
+  config = true,
 }
