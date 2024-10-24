@@ -16,11 +16,15 @@ return { {
   -- Optional; default configuration will be used if setup isn't called.
 
   config = function()
-    local everforest = require("everforest")
-    everforest.setup({
-      vim.cmd([[colorscheme everforest]]),
-      term_colors = false,
+    require("everforest").setup({
+      vim.cmd([[colorscheme everforest]])
     })
   end,
-},
+}, {
+  "tanvirtin/monokai.nvim",
+
+  -- config = function()
+  --   vim.cmd([[colorscheme monokai]])
+  -- end
+}
 }
