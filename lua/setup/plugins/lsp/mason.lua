@@ -35,7 +35,7 @@ return {
         "black",    -- python formatter
         "pylint",
         "eslint_d",
-        "dcm",
+        -- "dcm",
         "codelldb"
       },
     })
