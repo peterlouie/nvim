@@ -63,6 +63,7 @@ return {
       -- window splits
       actions = {
         open_file = {
+          quit_on_open = true,
           window_picker = {
             enable = false,
           },
@@ -82,9 +83,9 @@ return {
 
     --set keymaps
     local keymap = vim.keymap
-    keymap.set("n", "<leader>tt", "<cmd>NvimTreeOpen<CR>", { desc = "Open file explorer" })                             -- toggle file explorer
-    keymap.set("n", "<leader>tx", "<cmd>NvimTreeClose<CR>", { desc = "CLose file explorer" })                           -- toggle file explorer
-    -- keymap.set("n", "<Esc>", "<cmd>NvimTreeClose<CR>", { desc = "Toggle file explorer" })                               -- toggle file explorer
+    keymap.set("n", "<leader>tt", "<cmd>NvimTreeToggle<CR>", { desc = "Open file explorer" })                           -- toggle file explorer
+    -- keymap.set("n", "<leader>tx", "<cmd>NvimTreeClose<CR>", { desc = "CLose file explorer" })                           -- toggle file explorer
+    keymap.set("n", "<Esc>", "<cmd>NvimTreeClose<CR>", { desc = "Toggle file explorer" })                               -- toggle file explorer
     keymap.set("n", "<leader>tf", "<cmd>NvimTreeFindFileToggle<CR>", { desc = "Toggle file explorer on current file" }) -- toggle file explorer on current file
     keymap.set("n", "<leader>tc", "<cmd>NvimTreeCollapse<CR>", { desc = "Collapse file explorer" })                     -- collapse file explorer
     keymap.set("n", "<leader>tr", "<cmd>NvimTreeRefresh<CR>", { desc = "Refresh file explorer" })                       -- refresh file explorer
