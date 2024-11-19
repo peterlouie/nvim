@@ -5,7 +5,13 @@ return {
     'reisub0/hot-reload.vim',
     'nvim-lua/plenary.nvim',
     'stevearc/dressing.nvim', -- optional for vim.ui.select
+    'wa11breaker/flutter-bloc.nvim'
   },
+  vim.keymap.set('n', '<F1>', '<cmd>:FlutterReload<CR>', { desc = 'Flutter Reload' }),
+  vim.keymap.set('n', '<F2>', '<cmd>:FlutterRestart<CR>', { desc = 'Flutter Hot Reload' }),
+  vim.keymap.set('n', '<F3>', '<cmd>:FlutterLogClear<CR>', { desc = 'Flutter Log Clear' }),
+  vim.keymap.set('n', '<F7>', '<cmd>:FlutterRun<CR>', { desc = 'Flutter Run' }),
+  vim.keymap.set('n', '<leader>fq', '<cmd>:FlutterQuit<CR>', { desc = 'Flutter Quit' }),
 
   config = function()
     local flutter = require("flutter-tools")
@@ -13,6 +19,12 @@ return {
     flutter.setup({
       widget_guides = {
         enabled = true,
+      },
+
+      decoration = {
+        statusline = {
+          device = true,
+        }
       },
 
       lsp = {
@@ -24,13 +36,7 @@ return {
           virtual_text = true, -- show the highlight using virtual text
           virtual_text_str = "■", -- the virtual text character to highlight
         },
-        on_attach = my_custom_on_attach,
-        capabilities = my_custom_capabilities, -- e.g. lsp_status capabilities
-        --- OR you can specify a function to deactivate or change or control how the config is created
-        capabilities = function(config)
-          config.specificThingIDontWant = false
-          return config
-        end,
+
         -- see the link below for details on each option:
         -- https://github.com/dart-lang/sdk/blob/master/pkg/analysis_server/tool/lsp_spec/README.md#client-workspace-configuration
         settings = {
@@ -39,7 +45,7 @@ return {
           analysisExcludedFolders = { "<path-to-flutter-sdk-packages>" },
           renameFilesWithClasses = "prompt", -- "always"
           enableSnippets = true,
-          updateImportsOnRename = true,  -- Whether to update imports and other directives when files are renamed. Required for `FlutterRename` command.
+          updateImportsOnRename = true,      -- Whether to update imports and other directives when files are renamed. Required for `FlutterRename` command.
         }
       }
     })

@@ -60,16 +60,9 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
---code folding
-vim.cmd([[:set nofoldenable]])
-
-vim.api.nvim_create_autocmd({ "FileType" }, {
-  callback = function()
-    if require("nvim-treesitter.parsers").has_parser() then
-      vim.opt.foldmethod = "expr"
-      vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
-    else
-      vim.opt.foldmethod = "syntax"
-    end
-  end,
-})
+-- --code folding
+vim.cmd([[:set foldcolumn=1]])
+vim.cmd([[:set foldlevel=99]])
+vim.cmd([[:set foldlevelstart=99]])
+vim.cmd([[:set foldmethod=expr]])
+vim.cmd([[:set foldexpr=nvim_treesitter#foldexpr()]])
