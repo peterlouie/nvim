@@ -7,10 +7,10 @@ return {
     'stevearc/dressing.nvim', -- optional for vim.ui.select
     'wa11breaker/flutter-bloc.nvim'
   },
-  vim.keymap.set('n', '<F1>', '<cmd>:FlutterReload<CR>', { desc = 'Flutter Reload' }),
-  vim.keymap.set('n', '<F2>', '<cmd>:FlutterRestart<CR>', { desc = 'Flutter Hot Reload' }),
-  vim.keymap.set('n', '<F3>', '<cmd>:FlutterLogClear<CR>', { desc = 'Flutter Log Clear' }),
-  vim.keymap.set('n', '<F7>', '<cmd>:FlutterRun<CR>', { desc = 'Flutter Run' }),
+  vim.keymap.set('n', '<F5>', '<cmd>:FlutterReload<CR>', { desc = 'Flutter Reload' }),
+  vim.keymap.set('n', '<F6>', '<cmd>:FlutterRestart<CR>', { desc = 'Flutter Hot Reload' }),
+  vim.keymap.set('n', '<F7>', '<cmd>:FlutterLogClear<CR>', { desc = 'Flutter Log Clear' }),
+  vim.keymap.set('n', '<F8>', '<cmd>:FlutterRun<CR>', { desc = 'Flutter Run' }),
   vim.keymap.set('n', '<leader>fq', '<cmd>:FlutterQuit<CR>', { desc = 'Flutter Quit' }),
 
   config = function()
