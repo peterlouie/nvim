@@ -1,7 +1,11 @@
 vim.g.mapleader = " "
 
-local keymap = vim.keymap -- for conciseness
-keymap.set("n", "<leader>h", ":nohl<CR>", { desc = "Clear search highlights" })
+-- for conciseness
+local keymap = vim.keymap
+local opts = { noremap = true, silent = true }
+
+-- keymap.set("n", "<leader>h", ":nohl<CR>", { desc = "Clear search highlights" })
+keymap.set("n", "<leader>h", ":nohl<CR>", opts)
 
 --increment/decrement numbers
 keymap.set("n", "<leader>+", "<C-a>", { desc = "Increment number" }) -- increment
@@ -18,9 +22,20 @@ keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" })     
 keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" })            -- go to previous tab
 keymap.set("n", "<leader>td", "<cmd>tabnew %<CR>", { desc = "Open current buffer intab" }) -- move current buffer to new tab
 
-keymap.set("n", "<C-k>", "<cmd>wincmd k<CR>", { desc = "" })
-keymap.set("n", "<C-j>", "<cmd>wincmd j<CR>", { desc = "" })
-keymap.set("n", "<C-h>", "<cmd>wincmd h<CR>", { desc = "" })
-keymap.set("n", "<C-l>", "<cmd>wincmd l<CR>", { desc = "" })
+-- Split Navigation
+keymap.set("n", "<C-k>", "<cmd>wincmd k<CR>", opts)
+keymap.set("n", "<C-j>", "<cmd>wincmd j<CR>", opts)
+keymap.set("n", "<C-h>", "<cmd>wincmd h<CR>", opts)
+keymap.set("n", "<C-l>", "<cmd>wincmd l<CR>", opts)
 
+-- Resize with arrows
+keymap.set('n', '<C-Up>', ':resize -2<CR>', opts)
+keymap.set('n', '<C-Down>', ':resize +2<CR>', opts)
+keymap.set('n', '<C-Left>', ':vertical resize -2<CR>', opts)
+keymap.set('n', '<C-Right>', ':vertical resize +2<CR>', opts)
+
+-- Escape alternative
 keymap.set("i", "<C-j>", "<Esc>", { desc = "" })
+
+-- delete buffer
+keymap.set('n', '<leader>x', ':bdelete!<CR>', opts)
