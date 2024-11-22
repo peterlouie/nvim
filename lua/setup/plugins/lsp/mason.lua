@@ -36,7 +36,7 @@ return {
         "pylint",
         "eslint_d",
         -- "dcm",
-        "codelldb"
+        -- "codelldb"
       },
     })
   end,

@@ -81,7 +81,7 @@ return {
 
         -- mapping to restart lsp if necessary
         opts.desc = "Restart LSP"
-        keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts)
+        keymap.set("n", "<leader>rs", "<cmd>LspRestart<CR>", opts)
       end
     })
 
@@ -100,7 +100,6 @@ return {
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     capabilities = vim.tbl_deep_extend('force', capabilities, cmp_nvim_lsp.default_capabilities())
 
-
     -- Change the Diagnostic symbols in the sign column (gutter)
     local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
     for type, icon in pairs(signs) do
@@ -111,11 +110,11 @@ return {
     mason_lspconfig.setup_handlers({
 
       -- default handler for installed servers
-      function(server_name)
-        lspconfig[server_name].setup({
-          capabilities = capabilities,
-        })
-      end,
+      -- function(server_name)
+      --   lspconfig[server_name].setup({
+      --     capabilities = capabilities,
+      --   })
+      -- end,
 
       ["lua_ls"] = function()
         -- configure lua server (with special settings)

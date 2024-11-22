@@ -38,4 +38,4 @@ keymap.set('n', '<C-Right>', ':vertical resize +2<CR>', opts)
 keymap.set("i", "<C-j>", "<Esc>", { desc = "" })
 
 -- delete buffer
-keymap.set('n', '<leader>x', ':bdelete!<CR>', opts)
+keymap.set('n', '<leader>bx', ':bdelete!<CR>', opts)

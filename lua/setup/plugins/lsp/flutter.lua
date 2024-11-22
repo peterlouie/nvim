@@ -7,6 +7,7 @@ return {
     'stevearc/dressing.nvim', -- optional for vim.ui.select
     'wa11breaker/flutter-bloc.nvim'
   },
+
   vim.keymap.set('n', '<F5>', '<cmd>:FlutterReload<CR>', { desc = 'Flutter Reload' }),
   vim.keymap.set('n', '<F6>', '<cmd>:FlutterRestart<CR>', { desc = 'Flutter Hot Reload' }),
   vim.keymap.set('n', '<F7>', '<cmd>:FlutterLogClear<CR>', { desc = 'Flutter Log Clear' }),

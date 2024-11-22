@@ -61,16 +61,6 @@ return {
           mode = "symbol_text",
           show_labelDetails = true,
           fields = { 'kind', 'abbr', 'menu' },
-          before = function(entry, vim_item)
-            -- vim_item.kind = string.format('%s', kind_icons[vim_item.kind])
-            vim_item.menu = ({
-              buffer = '[Buffer]',
-              nvim_lsp = '[LSP]',
-              luasnip = '[Snippet]',
-              path = '[Path]',
-            })[entry.source.name]
-            return vim_item
-          end,
         }),
       },
 

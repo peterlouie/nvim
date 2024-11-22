@@ -35,7 +35,6 @@ return {
         "gomod",
         "gowork",
         "gosum",
-        "dart",
         "rust",
       },
       incremental_selection = {
