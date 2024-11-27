@@ -7,6 +7,14 @@ local opts = { noremap = true, silent = true }
 -- keymap.set("n", "<leader>h", ":nohl<CR>", { desc = "Clear search highlights" })
 keymap.set("n", "<leader>h", ":nohl<CR>", opts)
 
+-- Centering cursor
+keymap.set("n", "<C-d>", "<C-d>zz", opts)
+keymap.set("n", "<C-u>", "<C-u>zz", opts)
+
+-- Search with stay on mid
+keymap.set("n", "n", "nzzzv", opts)
+keymap.set("n", "N", "Nzzzv", opts)
+
 --increment/decrement numbers
 keymap.set("n", "<leader>+", "<C-a>", { desc = "Increment number" }) -- increment
 keymap.set("n", "<leader>-", "<C-x>", { desc = "Decrement number" }) -- decrement
@@ -39,3 +47,7 @@ keymap.set("i", "<C-j>", "<Esc>", { desc = "" })
 
 -- delete buffer
 keymap.set('n', '<leader>bx', ':bdelete!<CR>', opts)
+
+-- moving on selected visual
+keymap.set('v', 'J', ":m '>+1<CR>gv=gv", opts)
+keymap.set('v', 'K', ":m '<-2<CR>gv=gv", opts)

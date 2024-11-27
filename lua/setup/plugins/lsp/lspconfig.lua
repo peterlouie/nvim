@@ -96,9 +96,7 @@ return {
     end)
 
     -- used to enable autocompletion (assign to every lsp server config)
-    -- local capabilities = cmp_nvim_lsp.default_capabilities()
-    local capabilities = vim.lsp.protocol.make_client_capabilities()
-    capabilities = vim.tbl_deep_extend('force', capabilities, cmp_nvim_lsp.default_capabilities())
+    local capabilities = cmp_nvim_lsp.default_capabilities()
 
     -- Change the Diagnostic symbols in the sign column (gutter)
     local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
@@ -110,11 +108,11 @@ return {
     mason_lspconfig.setup_handlers({
 
       -- default handler for installed servers
-      -- function(server_name)
-      --   lspconfig[server_name].setup({
-      --     capabilities = capabilities,
-      --   })
-      -- end,
+      function(server_name)
+        lspconfig[server_name].setup({
+          capabilities = capabilities,
+        })
+      end,
 
       ["lua_ls"] = function()
         -- configure lua server (with special settings)

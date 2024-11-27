@@ -2,8 +2,7 @@ return {
   'nvim-telescope/telescope.nvim',
   tag = '0.1.8',
   dependencies = {
-    'nvim-lua/plenary.nvim',
-    { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+    'nvim-lua/plenary.nvim', { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
     { 'nvim-tree/nvim-web-devicons',              enabled = vim.g.have_nerd_font },
     'nvim-telescope/telescope-ui-select.nvim',
   },
@@ -11,6 +10,7 @@ return {
   config = function()
     local telescope = require("telescope")
     local actions = require("telescope.actions")
+    local open_with_trouble = require("trouble.sources.telescope").open
 
     telescope.setup({
       defaults = {
@@ -21,7 +21,8 @@ return {
             ["<C-k>"] = actions.move_selection_previous, -- move to prev result
             ["<C-j>"] = actions.move_selection_next,     -- move to next result
             ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
-            -- ["<C-t>"] = trouble.telescope.smart_open_with_trouble,
+            ['<C-d>'] = require('telescope.actions').delete_buffer,
+            ["<C-t>"] = open_with_trouble,
           },
         },
       },

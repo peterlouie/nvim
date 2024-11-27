@@ -1,14 +1,5 @@
-return { {
-  "catppuccin/nvim",
-  name = "catppuccin",
-  priority = 1000,
-
-  config = function()
-    require("catppuccin").setup({
-      term_colors = false,
-    })
-  end
-}, {
+return
+{
   "neanias/everforest-nvim",
   version = false,
   lazy = false,
@@ -16,15 +7,36 @@ return { {
   -- Optional; default configuration will be used if setup isn't called.
 
   config = function()
-    require("everforest").setup({
+    local everforest = require("everforest")
+
+    everforest.setup({
       vim.cmd([[colorscheme everforest]])
     })
   end,
-}, {
-  "tanvirtin/monokai.nvim",
+}
 
-  -- config = function()
-  --   vim.cmd([[colorscheme monokai]])
-  -- end
-}
-}
+-- {
+--   "catppuccin/nvim",
+--   name = "catppuccin",
+--   priority = 1000,
+--
+--   opts = {
+--     term_colors = true,
+--     transparent_background = true,
+--     dim_inactive = {
+--       enabled = true,    -- dims the background color of inactive window
+--       shade = "dark",
+--       percentage = 0.15, -- percentage of the shade to apply to the inactive window
+--     }
+--   },
+--
+--   config = function()
+--     local catppuccin = require("catppuccin")
+--
+--     catppuccin.setup({
+--       vim.cmd([[colorscheme catppuccin-mocha]]),
+--
+--       -- transparent_background = true,
+--     })
+--   end,
+-- }

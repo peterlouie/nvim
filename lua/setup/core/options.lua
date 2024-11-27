@@ -10,6 +10,7 @@ opt.tabstop = 2       -- 2 spaces for tabs (prettier default)
 opt.shiftwidth = 2    -- 2 spaces for indent width
 opt.expandtab = true  -- expand tab to spaces
 opt.autoindent = true -- copy indent from current line when starting new one
+opt.scrolloff = 10
 
 opt.wrap = true
 opt.linebreak = true
@@ -44,10 +45,6 @@ opt.splitbelow = true -- split horizontal window to the bottom
 
 --turn off swapfile
 opt.swapfile = false
-
---remain center
-vim.cmd([[:nnoremap k kzz]])
-vim.cmd([[:nnoremap j jzz]])
 
 --transparency
 vim.cmd([[autocmd Colorscheme * highlight Normal guibg=none]])

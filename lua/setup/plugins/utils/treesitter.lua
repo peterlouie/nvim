@@ -36,6 +36,7 @@ return {
         "gowork",
         "gosum",
         "rust",
+        "dart",
       },
       incremental_selection = {
         enable = true,
