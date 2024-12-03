@@ -53,7 +53,7 @@ return {
     lualine.setup({
       options = {
         -- theme = my_lualine_theme,
-        theme = "everforest",
+        theme = "dracula",
         disabled_filetypes = { 'alpha', 'NvimTree' },
       },
       sections = {
