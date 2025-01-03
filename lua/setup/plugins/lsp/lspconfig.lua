@@ -138,7 +138,16 @@ return {
           capabilities = capabilities,
           root_dir = util.root_pattern("Cargo.toml"),
           on_attach = function(_, bufnr)
-            vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+            -- vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+            local inlay = true
+            vim.keymap.set('n', '<F9>', function()
+              inlay = not inlay
+              if inlay then
+                vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+              else
+                vim.lsp.inlay_hint.enable(false, { bufnr = bufnr })
+              end
+            end)
           end,
           setting = {
             cargo = {
